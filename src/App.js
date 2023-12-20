@@ -1,10 +1,10 @@
 import {
+  AppleFilled,
   DashboardOutlined,
   HomeFilled,
   RedEnvelopeOutlined,
 } from "@ant-design/icons";
-import { Input, Menu, Space, Typography } from "antd";
-const { Text, Link, Paragraph } = Typography;
+import { Input, Menu, Space, Tabs, Typography } from "antd";
 function App() {
   return (
     <div className="App">
@@ -18,49 +18,36 @@ function App() {
         }}
       >
         <Space direction="vertical">
-          <Menu
-            mode="inline"
-            defaultOpenKeys={["dashboard"]}
-            items={[
-              {
-                label: (
-                  <Input.Search placeholder="Search here..."></Input.Search>
-                ),
-                key: "search",
-              },
-              {
-                label: "Home",
-                key: "home",
-                icon: <HomeFilled />,
-              },
-              {
-                label: "Dashboard",
-                key: "dashboard",
-                icon: <DashboardOutlined />,
-                children: [
-                  {
-                    label: "Revenue",
-                    key: "rev",
-                    icon: <RedEnvelopeOutlined />,
-                  },
-                  { label: "Expenses", key: "exp" },
-                ],
-              },
-              {
-                label: "User Management",
-                key: "um",
-                children: [
-                  { label: "Edit Profile", key: "ep" },
-                  { label: "Switch Account", key: "sa" },
-                ],
-              },
-              {
-                label: "Signout",
-                key: "signout",
-                danger: true,
-              },
-            ]}
-          ></Menu>
+          <Tabs>
+            <Tabs.TabPane
+              tab={
+                <span>
+                  <AppleFilled /> tab 1
+                </span>
+              }
+              key="tab1"
+            >
+              <div> This is a content of Tab1</div>
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 2" key="tab2">
+              <div> This is a content of Tab1</div>
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 3" key="tab3">
+              <div> sfsdf</div>
+            </Tabs.TabPane>
+          </Tabs>
+
+          <Tabs defaultActiveKey="tab1" tabPosition="left">
+            <Tabs.TabPane tab="Tab 1" key="tab1">
+              <div> This is a content of Tab1</div>
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 2" key="tab2">
+              <div> This is a content of Tab1</div>
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 3" key="tab3">
+              <div> sfsdf</div>
+            </Tabs.TabPane>
+          </Tabs>
         </Space>
       </header>
     </div>
