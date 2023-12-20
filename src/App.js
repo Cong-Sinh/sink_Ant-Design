@@ -1,7 +1,6 @@
-import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Space, Table, Tag, Upload } from "antd";
+import { Space, Typography } from "antd";
+const { Text, Link, Paragraph } = Typography;
 function App() {
-  const existingTags = ["code", "code with amir", "reactjs"];
   return (
     <div className="App">
       <header
@@ -13,28 +12,28 @@ function App() {
           height: "100vh",
         }}
       >
-        <Tag>Custom Tag</Tag>
-        <Tag closeIcon>Custom Tag</Tag>
-        <Tag
-          closable
-          style={{
-            backgroundColor: "red",
-            color: "yellow",
-            borderColor: "green",
-            borderRadius: 10,
-          }}
-          closeIcon={<DeleteOutlined />}
-        >
-          Custom Tag
-        </Tag>
-        <Space>
-          {existingTags.map((tag) => {
-            return (
-              <Tag key={tag} closable>
-                {tag}
-              </Tag>
-            );
-          })}
+        <Space direction="vertical">
+          <Text>Ant Design (default)</Text>
+          <Text type="secondary">Ant Design (secondary)</Text>
+          <Text type="success">Ant Design (success)</Text>
+          <Text type="warning">Ant Design (warning)</Text>
+          <Text type="danger">Ant Design (danger)</Text>
+          <Text disabled>Ant Design (disabled)</Text>
+          <Text mark>Ant Design (mark)</Text>
+          <Text code>Ant Design (code)</Text>
+          <Text keyboard>Ant Design (keyboard)</Text>
+          <Text underline>Ant Design (underline)</Text>
+          <Text delete>Ant Design (delete)</Text>
+          <Text strong>Ant Design (strong)</Text>
+          <Text italic>Ant Design (italic)</Text>
+          <Paragraph
+            copyable={{ text: "dsfsdf", tooltips: ["Click to coppy", "Done"] }}
+          >
+            Ant Design (italic)
+          </Paragraph>
+          <Link href="https://ant.design" target="_blank">
+            Ant Design (Link)
+          </Link>
         </Space>
       </header>
     </div>
