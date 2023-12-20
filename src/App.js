@@ -1,6 +1,7 @@
-import { Button, Table, Upload } from "antd";
-
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button, Space, Table, Tag, Upload } from "antd";
 function App() {
+  const existingTags = ["code", "code with amir", "reactjs"];
   return (
     <div className="App">
       <header
@@ -12,24 +13,29 @@ function App() {
           height: "100vh",
         }}
       >
-        <Upload.Dragger
-          multiple
-          listType="picture"
-          action={"http:/localhost:3000/"}
-          showUploadList={{ showRemoveIcon: true }}
-          accept=".png,.jpeg,.doc"
-          defaultFileList={[
-            {
-              uid: "abc",
-              name: "sinhdz_file.png",
-              status: "loading",
-              percent: 50,
-              url: "https://source.unsplash.com/featured",
-            },
-          ]}
+        <Tag>Custom Tag</Tag>
+        <Tag closeIcon>Custom Tag</Tag>
+        <Tag
+          closable
+          style={{
+            backgroundColor: "red",
+            color: "yellow",
+            borderColor: "green",
+            borderRadius: 10,
+          }}
+          closeIcon={<DeleteOutlined />}
         >
-          <Button>Upload</Button>
-        </Upload.Dragger>
+          Custom Tag
+        </Tag>
+        <Space>
+          {existingTags.map((tag) => {
+            return (
+              <Tag key={tag} closable>
+                {tag}
+              </Tag>
+            );
+          })}
+        </Space>
       </header>
     </div>
   );
