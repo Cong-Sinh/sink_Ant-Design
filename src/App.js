@@ -1,10 +1,5 @@
-import {
-  AppleFilled,
-  DashboardOutlined,
-  HomeFilled,
-  RedEnvelopeOutlined,
-} from "@ant-design/icons";
-import { Input, Menu, Space, Tabs, Typography } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Space } from "antd";
 function App() {
   return (
     <div className="App">
@@ -18,36 +13,32 @@ function App() {
         }}
       >
         <Space direction="vertical">
-          <Tabs>
-            <Tabs.TabPane
-              tab={
-                <span>
-                  <AppleFilled /> tab 1
-                </span>
-              }
-              key="tab1"
-            >
-              <div> This is a content of Tab1</div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Tab 2" key="tab2">
-              <div> This is a content of Tab1</div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Tab 3" key="tab3">
-              <div> sfsdf</div>
-            </Tabs.TabPane>
-          </Tabs>
+          <Avatar style={{ backgroundColor: "green", color: "white" }}>
+            Aamir
+          </Avatar>
 
-          <Tabs defaultActiveKey="tab1" tabPosition="left">
-            <Tabs.TabPane tab="Tab 1" key="tab1">
-              <div> This is a content of Tab1</div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Tab 2" key="tab2">
-              <div> This is a content of Tab1</div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Tab 3" key="tab3">
-              <div> sfsdf</div>
-            </Tabs.TabPane>
-          </Tabs>
+          <Avatar
+            shape="square"
+            style={{ backgroundColor: "black", color: "white" }}
+          >
+            A
+          </Avatar>
+          <Avatar src={"...."}></Avatar>
+          <Avatar icon={<UserOutlined />}></Avatar>
+          <Avatar.Group maxCount={2} maxPopoverPlacement="top">
+            <Avatar style={{ backgroundColor: "green", color: "white" }}>
+              Aamir
+            </Avatar>
+            <Avatar
+              shape="square"
+              style={{ backgroundColor: "black", color: "white" }}
+            >
+              A
+            </Avatar>
+            <Avatar style={{ backgroundColor: "pink", color: "white" }}>
+              Sinh dz
+            </Avatar>
+          </Avatar.Group>
         </Space>
       </header>
     </div>
