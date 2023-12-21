@@ -1,5 +1,6 @@
 import { Loading3QuartersOutlined, OneToOneOutlined } from "@ant-design/icons";
-import { Button, Drawer, Dropdown, Menu, Space, Switch } from "antd";
+import { width } from "@mui/system";
+import { Button, Drawer, Dropdown, Menu, Skeleton, Space, Switch } from "antd";
 import { useState } from "react";
 function App() {
   const [visible, setVisible] = useState(false);
@@ -14,33 +15,25 @@ function App() {
           height: "100vh",
         }}
       >
-        <Space size={12} direction="vertical">
-          <Button
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            Open Drawer
-          </Button>
-          <Drawer
-            visible={visible}
-            title="Drawer title"
-            footer="footer"
-            onClose={() => {
-              setVisible(false);
-            }}
-            placement="left"
-          >
-            <p>content</p>
-            <Button
-              onClick={() => {
-                setVisible(false);
-              }}
-            >
-              close
-            </Button>
-          </Drawer>
-        </Space>
+        <Skeleton
+          loading={true}
+          active
+          avatar={{ shape: "square" }}
+          title={{ width: 300 }}
+          paragraph={{ rows: 3, width: [200, 300, 100] }}
+        >
+          <div>hello</div>
+        </Skeleton>
+        <Skeleton.Avatar active shape="circle"></Skeleton.Avatar>
+        <Skeleton.Button
+          style={{ width: 200 }}
+          active
+          shape="round"
+        ></Skeleton.Button>
+        <Skeleton.Image active shape="circle"></Skeleton.Image>
+        <Skeleton.Node active shape="circle">
+          Loading...
+        </Skeleton.Node>
       </header>
     </div>
   );
