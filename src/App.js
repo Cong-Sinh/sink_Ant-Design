@@ -1,6 +1,8 @@
 import { Loading3QuartersOutlined, OneToOneOutlined } from "@ant-design/icons";
-import { Dropdown, Menu, Space, Switch } from "antd";
+import { Button, Drawer, Dropdown, Menu, Space, Switch } from "antd";
+import { useState } from "react";
 function App() {
+  const [visible, setVisible] = useState(false);
   return (
     <div className="App">
       <header
@@ -13,29 +15,31 @@ function App() {
         }}
       >
         <Space size={12} direction="vertical">
-          <Switch />
-          <Switch defaultChecked={true} />
-          <Switch
-            defaultChecked={true}
-            checkedChildren="On"
-            unCheckedChildren="Off"
-          />
-          <Switch
-            defaultChecked={true}
-            checkedChildren={<OneToOneOutlined />}
-            unCheckedChildren={<Loading3QuartersOutlined />}
-          />
-          <Switch
-            defaultChecked={true}
-            checkedChildren={<OneToOneOutlined />}
-            unCheckedChildren={<Loading3QuartersOutlined />}
-            disabled={true}
-          />
-          <Switch
-            defaultChecked={true}
-            checkedChildren="sfdgsdfgsdffgd"
-            unCheckedChildren="sdfsdfadssdfgsdfgsdgdf"
-          />
+          <Button
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Open Drawer
+          </Button>
+          <Drawer
+            visible={visible}
+            title="Drawer title"
+            footer="footer"
+            onClose={() => {
+              setVisible(false);
+            }}
+            placement="left"
+          >
+            <p>content</p>
+            <Button
+              onClick={() => {
+                setVisible(false);
+              }}
+            >
+              close
+            </Button>
+          </Drawer>
         </Space>
       </header>
     </div>
