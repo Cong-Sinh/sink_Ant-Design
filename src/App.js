@@ -1,52 +1,6 @@
-import {
-  CopyOutlined,
-  DeleteOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
-  ReloadOutlined,
-} from "@ant-design/icons";
-import { Dropdown, Menu } from "antd";
+import { Loading3QuartersOutlined, OneToOneOutlined } from "@ant-design/icons";
+import { Dropdown, Menu, Space, Switch } from "antd";
 function App() {
-  const menu = (
-    <Menu
-      onClick={({ key }) => {
-        console.log("you click on ", key);
-      }}
-      items={[
-        {
-          label: "Coppy",
-          key: "coppy",
-          icon: <CopyOutlined />,
-        },
-        {
-          label: "Share",
-          key: "share",
-          children: [
-            {
-              label: "Facebook",
-              key: "facebook",
-              icon: <FacebookOutlined />,
-            },
-            {
-              label: "Instagram",
-              key: "instagram",
-              icon: <InstagramOutlined />,
-            },
-          ],
-        },
-        {
-          label: "Reload",
-          key: "reload",
-          icon: <ReloadOutlined />,
-        },
-        {
-          label: "Delete",
-          key: "delete",
-          icon: <DeleteOutlined />,
-        },
-      ]}
-    ></Menu>
-  );
   return (
     <div className="App">
       <header
@@ -58,21 +12,31 @@ function App() {
           height: "100vh",
         }}
       >
-        <Dropdown overlay={menu} trigger={["contextMenu"]}>
-          <div
-            style={{
-              width: "200px",
-              height: "200px",
-              backgroundColor: "lightgray",
-              border: "1px solid red",
-            }}
-          >
-            Click Me
-          </div>
-        </Dropdown>
-        <Dropdown overlay={menu} trigger={["contextMenu"]}>
-          <div>Click Me</div>
-        </Dropdown>
+        <Space size={12} direction="vertical">
+          <Switch />
+          <Switch defaultChecked={true} />
+          <Switch
+            defaultChecked={true}
+            checkedChildren="On"
+            unCheckedChildren="Off"
+          />
+          <Switch
+            defaultChecked={true}
+            checkedChildren={<OneToOneOutlined />}
+            unCheckedChildren={<Loading3QuartersOutlined />}
+          />
+          <Switch
+            defaultChecked={true}
+            checkedChildren={<OneToOneOutlined />}
+            unCheckedChildren={<Loading3QuartersOutlined />}
+            disabled={true}
+          />
+          <Switch
+            defaultChecked={true}
+            checkedChildren="sfdgsdfgsdffgd"
+            unCheckedChildren="sdfsdfadssdfgsdfgsdgdf"
+          />
+        </Space>
       </header>
     </div>
   );
