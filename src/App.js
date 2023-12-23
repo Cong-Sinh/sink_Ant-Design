@@ -1,71 +1,18 @@
-import {
-  CheckCircleFilled,
-  HeartOutlined,
-  LoginOutlined,
-  MenuOutlined,
-  ProfileFilled,
-} from "@ant-design/icons";
-import { Button, Drawer, Form, Input, Menu, Rate, Steps } from "antd";
-import { useState } from "react";
+import { Space } from "antd";
+import AppHeader from "./Component/AppHeader";
+import SideMenu from "./Component/SideMenu";
+import PageContent from "./Component/PageContent";
+import AppFooter from "./Component/AppFooter";
 function App() {
-  const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className="App">
-      <header
-        className="App-header"
-        style={{
-          backgroundColor: "blue",
-          height: "100vh",
-        }}
-      >
-        <div>
-          <MenuOutlined
-            style={{
-              color: "white",
-              marginBottom: "10px",
-            }}
-            onClick={() => {
-              setOpenMenu(true);
-            }}
-          />
-        </div>
-        <AppMenu />
-        <Drawer
-          open={openMenu}
-          closable={false}
-          onClose={() => {
-            setOpenMenu(false);
-          }}
-          bodyStyle={{ backgroundColor: "darkorange" }}
-        >
-          <AppMenu isInline />
-        </Drawer>
-      </header>
+      <AppHeader />
+      <Space className="SideMenuAndPageContent">
+        <SideMenu></SideMenu>
+        <PageContent></PageContent>
+      </Space>
+      <AppFooter />
     </div>
-  );
-}
-
-function AppMenu({ isInline = false }) {
-  return (
-    <Menu
-      style={{ backgroundColor: "orange", display: "flex" }}
-      mode={isInline ? "inline" : "horizontal"}
-      closable="closable"
-      items={[
-        {
-          label: "Home",
-          key: "home",
-        },
-        {
-          label: "Context Us",
-          key: "context",
-        },
-        {
-          label: "About Us",
-          key: "About",
-        },
-      ]}
-    ></Menu>
   );
 }
 
